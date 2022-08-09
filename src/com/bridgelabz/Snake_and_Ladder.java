@@ -10,9 +10,10 @@ public class Snake_and_Ladder {
         int dieNum = dieRoll();
         System.out.println("Die Number : "+ dieNum);
 
-
-
-
-
+    }
+    private static int dieRoll(){
+        Random num = new Random();
+        int dieNum = num.nextInt();
+        return dieNum;
     }
 }
