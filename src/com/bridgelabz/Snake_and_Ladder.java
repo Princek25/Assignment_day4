@@ -3,24 +3,29 @@ import java.util.Random;
 
 public class Snake_and_Ladder {
     static int position = 0;
+    static int roll=0;
     static int snake = 1;
     static int ladder = 2;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and Ladder Game");
         System.out.println("Start Position : "+ position);
-        int dieNum = dieRoll();
-        System.out.println("Die Number : "+ dieNum);
-        action(dieNum);
-        System.out.println("Die Number : "+ position);
+        while (position!=100) {
 
+            int dieNum = dieRoll();
+            System.out.println("Die Number : " + dieNum);
+            action(dieNum);
+            System.out.println("Die Number : " + position);
+        }
+        System.out.println("Roll Die: "+roll);
     }
     private static void action(int dieNum){
         int option = (int) (Math.random() * 10) % 3;
         switch (option){
             case ladder :
                 System.out.println("It is ladder");
-                position+=dieNum;
+                if (position+dieNum<=100)
+                    position+=dieNum;
                 break;
             case snake :
                 System.out.println("It is Snake");
